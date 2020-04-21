@@ -22,6 +22,8 @@ app.get('/', async (req: Request, res: Response) => {
   });
 });
 
+/*************USERS*************/
+
 //index
 app.get('/user', async (req: Request, res: Response) => {
   const users: Array<User> = await database('users').select();
@@ -88,6 +90,92 @@ app.put('/user/:id', async (req: Request, res: Response) => {
         age: req.body.age
       }
       await database('users').update(newUser).where({ id: req.params.id });
+      res.sendStatus(200);
+    } else {
+      res.sendStatus(404);
+    }
+  } catch(error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
+});
+
+/*************GROUPS*************/
+
+interface Group {
+  id?: string,
+  name: string,
+  description: string,
+  location: string,
+  maximalSize: number
+}
+
+//index
+app.get('/group', async (req: Request, res: Response) => {
+  const groups: Array<Group> = await database('groups').select();
+  res.json(groups);
+});
+
+//show
+app.get('/group/:id', async (req: Request, res: Response) => {
+  try {
+    const group: Group = await database('groups').select().where({ id: req.params.id }).first();
+    if (group) {
+      res.json(group);
+    } else {
+      res.sendStatus(404);
+    }
+  } catch(error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
+});
+
+//create
+app.post('/group', async (req: Request, res: Response) => {
+  try {
+    const group: Group = {
+      name: req.body.name,
+      description: req.body.description,
+      location: req.body.location,
+      maximalSize: req.body.maximalSize
+    }
+    await database('groups').insert(group);
+    res.sendStatus(201);
+  } catch(error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
+});
+
+//delete
+app.delete('/group/:id', async (req: Request, res: Response) => {
+  try {
+    const group: Group = await database('groups').select().where({ id: req.params.id }).first();
+    if (group) {
+      await database('groups').delete().where({ id: req.params.id });
+      res.sendStatus(204);
+    } else {
+      res.sendStatus(404);
+    }
+  } catch(error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
+});
+
+//update
+app.put('/group/:id', async (req: Request, res: Response) => {
+  try {
+    const group: Group = await database('groups').select().where({ id: req.params.id }).first();
+    if (group) {
+      const newGroup: Group = {
+        name: req.body.name,
+        description: req.body.description,
+        location: req.body.location,
+        maximalSize: req.body.maximalSize
+      }
+      await database('groups').update(newGroup).where({ id: req.params.id });
       res.sendStatus(200);
     } else {
       res.sendStatus(404);
