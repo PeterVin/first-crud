@@ -1,7 +1,6 @@
 import * as express from 'express';
 import { Application } from 'express';
-import {router as userRouter} from './app/routers/user'
-import {router as groupRouter} from './app/routers/group'
+import { router } from './app/routers';
 
 const app: Application = express();
 app.use(express.json())
@@ -14,8 +13,7 @@ const { PORT = 3000 } = process.env;
   });
 });*/
 
-app.use(userRouter);
-app.use(groupRouter);
+app.use(router);
 
 
 app.listen(PORT, () => {

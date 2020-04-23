@@ -121,6 +121,17 @@ eval("\nvar __awaiter = (this && this.__awaiter) || function (thisArg, _argument
 
 /***/ }),
 
+/***/ "./src/app/routers/category.ts":
+/*!*************************************!*\
+  !*** ./src/app/routers/category.ts ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("throw new Error(\"Module build failed (from ./node_modules/ts-loader/index.js):\\nError: ENOENT: no such file or directory, open '/usr/src/app/src/app/routers/category.ts'\");\n\n//# sourceURL=webpack:///./src/app/routers/category.ts?");
+
+/***/ }),
+
 /***/ "./src/app/routers/group.ts":
 /*!**********************************!*\
   !*** ./src/app/routers/group.ts ***!
@@ -130,6 +141,29 @@ eval("\nvar __awaiter = (this && this.__awaiter) || function (thisArg, _argument
 
 "use strict";
 eval("\nexports.__esModule = true;\nvar express_1 = __webpack_require__(/*! express */ \"express\");\nvar groupController = __webpack_require__(/*! ../controllers/group */ \"./src/app/controllers/group.ts\");\nexports.router = express_1.Router({ mergeParams: true });\nexports.router.get('/group', groupController.index);\nexports.router.get('/group/:id', groupController.show);\nexports.router.post('/group', groupController.create);\nexports.router.put('/group/:id', groupController.update);\nexports.router[\"delete\"]('/group/:id', groupController.destroy);\n\n\n//# sourceURL=webpack:///./src/app/routers/group.ts?");
+
+/***/ }),
+
+/***/ "./src/app/routers/index.ts":
+/*!**********************************!*\
+  !*** ./src/app/routers/index.ts ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nexports.__esModule = true;\nvar user_1 = __webpack_require__(/*! ./user */ \"./src/app/routers/user.ts\");\nvar group_1 = __webpack_require__(/*! ./group */ \"./src/app/routers/group.ts\");\nvar todo_1 = __webpack_require__(/*! ./todo */ \"./src/app/routers/todo.ts\");\nvar category_1 = __webpack_require__(/*! ./category */ \"./src/app/routers/category.ts\");\nvar express_1 = __webpack_require__(/*! express */ \"express\");\nexports.router = express_1.Router({ mergeParams: true });\nexports.router.use(user_1.router);\nexports.router.use(group_1.router);\nexports.router.use(todo_1.router);\nexports.router.use(category_1.router);\n\n\n//# sourceURL=webpack:///./src/app/routers/index.ts?");
+
+/***/ }),
+
+/***/ "./src/app/routers/todo.ts":
+/*!*********************************!*\
+  !*** ./src/app/routers/todo.ts ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("throw new Error(\"Module build failed (from ./node_modules/ts-loader/index.js):\\nError: ENOENT: no such file or directory, open '/usr/src/app/src/app/routers/todo.ts'\");\n\n//# sourceURL=webpack:///./src/app/routers/todo.ts?");
 
 /***/ }),
 
@@ -153,7 +187,7 @@ eval("\nexports.__esModule = true;\nvar express_1 = __webpack_require__(/*! expr
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nexports.__esModule = true;\nvar express = __webpack_require__(/*! express */ \"express\");\nvar user_1 = __webpack_require__(/*! ./app/routers/user */ \"./src/app/routers/user.ts\");\nvar group_1 = __webpack_require__(/*! ./app/routers/group */ \"./src/app/routers/group.ts\");\nvar app = express();\napp.use(express.json());\nvar _a = process.env.PORT, PORT = _a === void 0 ? 3000 : _a;\n/*app.get('/', async (req: Request, res: Response) => {\n  res.json({\n    message: 'hello world',\n  });\n});*/\napp.use(user_1.router);\napp.use(group_1.router);\napp.listen(PORT, function () {\n    console.log(\"server started at http://localhost:\" + PORT);\n});\n\n\n//# sourceURL=webpack:///./src/index.ts?");
+eval("\nexports.__esModule = true;\nvar express = __webpack_require__(/*! express */ \"express\");\nvar routers_1 = __webpack_require__(/*! ./app/routers */ \"./src/app/routers/index.ts\");\nvar app = express();\napp.use(express.json());\nvar _a = process.env.PORT, PORT = _a === void 0 ? 3000 : _a;\n/*app.get('/', async (req: Request, res: Response) => {\n  res.json({\n    message: 'hello world',\n  });\n});*/\napp.use(routers_1.router);\napp.listen(PORT, function () {\n    console.log(\"server started at http://localhost:\" + PORT);\n});\n\n\n//# sourceURL=webpack:///./src/index.ts?");
 
 /***/ }),
 
