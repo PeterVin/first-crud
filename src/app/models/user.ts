@@ -4,6 +4,8 @@ export interface User {
   lastName: string;
   email: string;
   age: number;
+  groupId?: number;
+  role?: string;
   created_at?: string;
-  updated_at?: string;
+  updated_at?: string;   
 }

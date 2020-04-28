@@ -1,6 +1,14 @@
 import { Group } from "../models/group";
 import { database } from "../../lib/database";
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
+
+export const authorization = (req: Request, res: Response, next: NextFunction) => {
+  if(['admin', 'groupManager'].includes(res.locals.user.role)) {
+    next();
+  } else {
+    res.sendStatus(403);
+  }
+}
 
 export const index = async (req: Request, res: Response) => {
   const groups: Array<Group> = await database('groups').select();
@@ -10,7 +18,7 @@ export const index = async (req: Request, res: Response) => {
 export const show = async (req: Request, res: Response) => {
   try {
     const group: Group = await database('groups').select().where({ id: req.params.id }).first();
-    if (group) {
+    if (typeof group !== 'undefined') {
       res.json(group);
     } else {
       res.sendStatus(404);
@@ -56,7 +64,7 @@ export const update = async (req: Request, res: Response) => {
     console.error(error);
     res.sendStatus(500);
   }
-};
+}
 
 export const destroy = async (req: Request, res: Response) => {
   try {

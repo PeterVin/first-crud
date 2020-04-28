@@ -121,17 +121,6 @@ eval("\nvar __awaiter = (this && this.__awaiter) || function (thisArg, _argument
 
 /***/ }),
 
-/***/ "./src/app/routers/category.ts":
-/*!*************************************!*\
-  !*** ./src/app/routers/category.ts ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("throw new Error(\"Module build failed (from ./node_modules/ts-loader/index.js):\\nError: ENOENT: no such file or directory, open '/usr/src/app/src/app/routers/category.ts'\");\n\n//# sourceURL=webpack:///./src/app/routers/category.ts?");
-
-/***/ }),
-
 /***/ "./src/app/routers/group.ts":
 /*!**********************************!*\
   !*** ./src/app/routers/group.ts ***!
@@ -152,18 +141,7 @@ eval("\nexports.__esModule = true;\nvar express_1 = __webpack_require__(/*! expr
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nexports.__esModule = true;\nvar user_1 = __webpack_require__(/*! ./user */ \"./src/app/routers/user.ts\");\nvar group_1 = __webpack_require__(/*! ./group */ \"./src/app/routers/group.ts\");\nvar todo_1 = __webpack_require__(/*! ./todo */ \"./src/app/routers/todo.ts\");\nvar category_1 = __webpack_require__(/*! ./category */ \"./src/app/routers/category.ts\");\nvar express_1 = __webpack_require__(/*! express */ \"express\");\nexports.router = express_1.Router({ mergeParams: true });\nexports.router.use(user_1.router);\nexports.router.use(group_1.router);\nexports.router.use(todo_1.router);\nexports.router.use(category_1.router);\n\n\n//# sourceURL=webpack:///./src/app/routers/index.ts?");
-
-/***/ }),
-
-/***/ "./src/app/routers/todo.ts":
-/*!*********************************!*\
-  !*** ./src/app/routers/todo.ts ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("throw new Error(\"Module build failed (from ./node_modules/ts-loader/index.js):\\nError: ENOENT: no such file or directory, open '/usr/src/app/src/app/routers/todo.ts'\");\n\n//# sourceURL=webpack:///./src/app/routers/todo.ts?");
+eval("\nexports.__esModule = true;\nvar user_1 = __webpack_require__(/*! ./user */ \"./src/app/routers/user.ts\");\nvar group_1 = __webpack_require__(/*! ./group */ \"./src/app/routers/group.ts\");\n//import { router as todoRouter } from './todo'\n//import { router as categoryRouter } from './category'\nvar express_1 = __webpack_require__(/*! express */ \"express\");\nexports.router = express_1.Router({ mergeParams: true });\nexports.router.use(user_1.router);\nexports.router.use(group_1.router);\n//router.use(todoRouter);\n//router.use(categoryRouter);\n\n\n//# sourceURL=webpack:///./src/app/routers/index.ts?");
 
 /***/ }),
 
