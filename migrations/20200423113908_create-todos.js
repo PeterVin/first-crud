@@ -5,10 +5,10 @@ exports.up = function(knex) {
     table.string('name');
     table.string('description');
     table.string('status');
-    table.integer('user_id').unsigned().references('users.id');
-    table.integer('category_id').unsigned().references('categories.id');
-    table.timestamp('updated_at').defaultTo(knex.raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
-    table.timestamp('created_at').defaultTo(knex.raw('CURRENT_TIMESTAMP'));
+    table.integer('userId').unsigned().references('users.id');
+    table.integer('categoryId').unsigned().references('categories.id');
+    table.timestamp('updatedAt').defaultTo(knex.raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+    table.timestamp('createdAt').defaultTo(knex.raw('CURRENT_TIMESTAMP'));
   });
 };
 

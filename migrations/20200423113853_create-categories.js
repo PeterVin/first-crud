@@ -4,8 +4,8 @@ exports.up = function(knex) {
     table.increments();
     table.string('name');
     table.enu('status', ['important', 'freetime', 'family']);
-    table.timestamp('updated_at').defaultTo(knex.raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
-    table.timestamp('created_at').defaultTo(knex.raw('CURRENT_TIMESTAMP'));
+    table.timestamp('updatedAt').defaultTo(knex.raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+    table.timestamp('createdAt').defaultTo(knex.raw('CURRENT_TIMESTAMP'));
   });
 };
 

@@ -6,7 +6,8 @@ exports.up = (knex) => {
     table.string('lastName', 35).notNullable();
     table.string('email', 15).notNullable();
     table.integer('age');
-    table.timestamps();
+    table.timestamp('updatedAt').defaultTo(knex.raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+    table.timestamp('createdAt').defaultTo(knex.raw('CURRENT_TIMESTAMP'));
   });
 };
 
